@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace Api.Data.Collections
@@ -15,14 +16,14 @@ namespace Api.Data.Collections
     )
     {
       this.CodigoPaciente = GerarId(codigoPaciente);
-      this.DataNascimento = dataNascimento;
+      this.DataNascimento = FormatarDataNascimento(dataNascimento);
       this.Sexo = sexo;
       this.Covid19 = covid19;
       this.Localizacao = new GeoJson2DGeographicCoordinates(longitude, latitude);
     }
 
     public string CodigoPaciente { get; set; }
-    public DateTime DataNascimento { get; set; }
+    public String DataNascimento { get; set; }
     public string Sexo { get; set; }
     public bool Covid19 { get; set; }
     public GeoJson2DGeographicCoordinates Localizacao { get; set; }
@@ -31,6 +32,12 @@ namespace Api.Data.Collections
     {
       id = Guid.NewGuid().ToString("N").Substring(0, 5); ;
       return id;
+    }
+
+    private string FormatarDataNascimento(DateTime datetime)
+    {
+      string data = datetime.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
+      return data;
     }
   }
 }
