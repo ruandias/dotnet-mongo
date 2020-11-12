@@ -21,11 +21,11 @@ namespace Api.Controllers
         [HttpPost]
         public ActionResult SalvarInfectado([FromBody] InfectadoDto dto)
         {
-            var infectado = new Infectado(dto.DataNascimento, dto.Sexo, dto.Latitude, dto.Longitude);
+            var infectado = new Infectado(dto.CodigoPaciente, dto.DataNascimento, dto.Sexo, dto.Covid19, dto.Latitude, dto.Longitude);
 
             _infectadosCollection.InsertOne(infectado);
             
-            return StatusCode(201, "Infectado adicionado com sucesso");
+            return StatusCode(201, $"Infectado adicionado com sucesso {infectado.CodigoPaciente}");
         }
 
         [HttpGet]
