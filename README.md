@@ -59,7 +59,7 @@ O projeto foi desenvolvido em:
 - MongoDB Atlas
 
 
-<h2 id="references">🚀 Referências</h2>
+<h2 id="references">📚 Referências</h2>
 
 https://docs.mongodb.com/
 
