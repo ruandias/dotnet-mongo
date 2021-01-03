@@ -36,7 +36,7 @@ namespace Api.Controllers
       return Ok(infectados);
     }
 
-    [HttpPut("{id}")]
+    [HttpPatch("{id}")]
     public ActionResult AtualizarInfectado(string id, [FromBody] InfectadoDto dto)
     {
       var filter = Builders<Infectado>.Filter.Eq("codigoPaciente", id);
@@ -46,6 +46,16 @@ namespace Api.Controllers
       _infectadosCollection.UpdateOne(filter, update);
 
       return Ok("Atualizado com sucesso!");
+    }
+
+    [HttpDelete("{id}")]
+    public ActionResult DeletarInfectado(string id)
+    {
+      var deleteFilter = Builders<Infectado>.Filter.Eq("codigoPaciente", id);
+
+      _infectadosCollection.DeleteOne(deleteFilter);
+
+      return Ok("Deletado com sucesso!");
     }
   }
 }
