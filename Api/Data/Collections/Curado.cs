@@ -2,14 +2,14 @@ using System;
 using Api.Data.Enums;
 using MongoDB.Driver.GeoJsonObjectModel;
 
-namespace Api.Data.Collections
+namespace Api.Data.Collections 
 {
-  public class Infectado : Paciente
+  public class Curado : Paciente
   {
-    public Infectado(
+    public Curado(
     string codigoPaciente,
     DateTime dataNascimento,
-    string sexo,
+    ESexo sexo,
     bool covid19,
     double latitude,
     double longitude
@@ -17,12 +17,9 @@ namespace Api.Data.Collections
     {
       this.CodigoPaciente = GerarId(codigoPaciente);
       this.DataNascimento = FormatarDataNascimento(dataNascimento);
-      this.Sexo = sexo;
       this.Covid19 = covid19;
       this.Localizacao = new GeoJson2DGeographicCoordinates(longitude, latitude);
     }
-
     public bool Covid19 { get; set; }
-
   }
 }
