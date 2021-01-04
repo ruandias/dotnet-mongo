@@ -31,9 +31,13 @@ namespace Api.Controllers
     [HttpGet]
     public ActionResult ObterInfectados()
     {
-      var infectados = _infectadosCollection.Find(Builders<Infectado>.Filter.Empty).ToList();
+
+      var infectados = _infectadosCollection.Aggregate()
+      .Match(infectado => infectado.Covid19 == true)
+      .ToList();
 
       return Ok(infectados);
+
     }
 
     [HttpPatch("{id}")]
