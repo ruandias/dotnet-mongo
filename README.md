@@ -22,16 +22,45 @@ ___
 
 Para teste:
 
+Método POST
+
 https://localhost:5001/infectado
+
+Exemplo para inserir um infectado:
 
 ```json
 {
-	"dataNascimento": "1994-03-24",
-	"sexo": "M",
-	"latitude": -22.6420465,
-	"longitude": -43.2784356
+   "dataNascimento":"1994-03-24",
+   "sexo":"M",
+   "COVID19":true,
+   "latitude":-23.5630994,
+   "longitude":-46.6565712
 }
 ```
+Método GET Curados
+
+https://localhost:5001/Curado
+
+Exemplo de retorno:
+```
+[
+   {
+      "covid19":false,
+      "codigoPaciente":"bd07a",
+      "dataNascimento":"15/7/1994",
+      "sexo":"F",
+      "localizacao":{
+         "values":[
+            -46.6565712,
+            -23.5630994
+         ],
+         "longitude":-46.6565712,
+         "latitude":-23.5630994
+      }
+   }
+]
+```
+
 OBS: é preciso ter que configurar o acesso ao banco no appsettings. 
 
 **Passo a Passo:** Ir até o seu cluster criado, pegar a connectionString e colocar dentro do appsettings.json;
