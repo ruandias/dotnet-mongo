@@ -1,7 +1,6 @@
 using System;
 using System.Globalization;
 using MongoDB.Driver.GeoJsonObjectModel;
-using Api.Data.Enums;
 
 namespace Api.Data.Collections 
 {

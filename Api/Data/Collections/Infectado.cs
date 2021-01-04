@@ -1,5 +1,4 @@
 using System;
-using Api.Data.Enums;
 using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace Api.Data.Collections
